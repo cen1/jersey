@@ -76,6 +76,12 @@ public final class JettyClientProperties {
             "jersey.config.jetty.client.enableSslHostnameVerification";
 
     /**
+     * The size of the buffer used to write requests
+     */
+    public static final String REQUEST_BUFFER_SIZE =
+            "jersey.config.jetty.client.requestBufferSize";
+
+    /**
      * Get the value of the specified property.
      *
      * If the property is not set or the real value type is not compatible with the specified value type, returns {@code null}.

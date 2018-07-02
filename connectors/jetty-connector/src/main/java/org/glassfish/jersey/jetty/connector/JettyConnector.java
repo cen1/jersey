@@ -152,6 +152,10 @@ class JettyConnector implements Connector {
         if (connectTimeout != null && connectTimeout instanceof Integer && (Integer) connectTimeout > 0) {
             client.setConnectTimeout((Integer) connectTimeout);
         }
+        final Object requestBufferSize = config.getProperties().get(JettyClientProperties.REQUEST_BUFFER_SIZE);
+        if (requestBufferSize != null && requestBufferSize instanceof Integer && (Integer) requestBufferSize > 0) {
+            client.setRequestBufferSize((Integer) requestBufferSize);
+        }
         final Object threadPoolSize = config.getProperties().get(ClientProperties.ASYNC_THREADPOOL_SIZE);
         if (threadPoolSize != null && threadPoolSize instanceof Integer && (Integer) threadPoolSize > 0) {
             final String name = HttpClient.class.getSimpleName() + "@" + hashCode();
